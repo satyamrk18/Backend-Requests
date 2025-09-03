@@ -1,9 +1,9 @@
 import express from "express";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import cors from "cors";
 app.use(cors());
 
-dotenv.config()
+dotenv.config();
 const app = express();
 //middle ware to print the post request body
 app.use(express.json());
@@ -205,7 +205,7 @@ app.put("/todos/:id", (req, res) => {
   }
 });
 
-const  PORT = process.env.PORT || 5003;
+const PORT = process.env.PORT || 5003;
 app.listen(PORT, () => {
   console.log(`server is running successfully ❤️‍🔥!! ${PORT}`);
 });
