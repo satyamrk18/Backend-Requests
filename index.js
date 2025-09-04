@@ -1,13 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-app.use(cors());
 
-dotenv.config();
 const app = express();
 //middle ware to print the post request body
 app.use(express.json());
+app.use(cors());
 
+dotenv.config();
 const TODOS = [
   {
     id: 1,
@@ -205,6 +205,13 @@ app.put("/todos/:id", (req, res) => {
   }
 });
 
+//health api = used to check server is running or not
+app.get("/health",(req,res)=>{
+  res.json({
+    success:true,
+    message:"server is healthy"
+  })
+})
 const PORT = process.env.PORT || 5003;
 app.listen(PORT, () => {
   console.log(`server is running successfully ❤️‍🔥!! ${PORT}`);
